@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="menu-container">
+        ようこそ！ちゃらんけ専用サイトへ！<br>
+        <%= link_to "トップ", "/tops/index" %><br>
+        <%= link_to '練習メニュー記録', :controller => "practices", :action => "index" %><br>
+        <%= link_to '大会結果', :controller => "results", :action => "index" %><br>
+        <%= link_to '部費管理', :controller => "fee_admin", :action => "index" %><br>
+        <%= link_to 'アクアフリー予約', :controller => "reservations", :action => "index" %><br>
+        <%= link_to '各種情報', :controller => "informations", :action => "index" %><br>
+    </div>
+    <div class="memo-practices-container">
+        <h>アクアフリー予約</h>
+        <iframe src="https://calendar.google.com/calendar/embed?src=53eotd6cdnvn9101dviim2u0s4%40group.calendar.google.com&ctz=Asia%2FTokyo", width="840" height="600"></iframe>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="menu-container">
+        ようこそ！ちゃらんけ専用サイトへ！<br>
+        <%= link_to "トップ", "/tops/index" %><br>
+        <%= link_to '練習メニュー記録', :controller => "practices", :action => "index" %><br>
+        <%= link_to '大会結果', :controller => "results", :action => "index" %><br>
+        <%= link_to '部費管理', :controller => "fee_admin", :action => "index" %><br>
+        <%= link_to 'アクアフリー予約', :controller => "reservations", :action => "index" %><br>
+        <%= link_to '各種情報', :controller => "informations", :action => "index" %><br>
+    </div>
+    <div class="memo-practices-container">
+    <h3>練習の詳細</h3>
+    <div class="practice">
+        練習日：<%= @practice.date %><br>
+        練習種目：<%= @practice.event %><br>
+        その他記載事項：<%= @practice.body %><br>
+        画像：<br>
+        <%= link_to @practice.image_url , "data-lightbox": @practice.image_url do %>
+            <%= image_tag @practice.image_url, size: "250x200" if @practice.image? %>
+        <% end %>
+        <%= link_to @practice.image1_url, "data-lightbox": @practice.image1_url do %>
+            <%= image_tag @practice.image1_url, size: "250x200" if @practice.image? %>
+        <% end %>                    
+        <%= link_to @practice.image2_url, "data-lightbox": @practice.image2_url do %>
+            <%= image_tag @practice.image2_url, size: "250x200" if @practice.image? %>
+        <% end %>                    
+        <%= link_to @practice.image3_url, "data-lightbox": @practice.image3_url do %>
+            <%= image_tag @practice.image3_url, size: "250x200" if @practice.image? %>
+        <% end %>                    
+        <%= link_to @practice.image4_url, "data-lightbox": @practice.image4_url do %>
+            <%= image_tag @practice.image4_url, size: "250x200" if @practice.image? %>
+        <% end %>
+    </div><br>
+    <%= link_to "練習記録の一覧に戻る", "/practices/index" %>
+    </div>
+</div>

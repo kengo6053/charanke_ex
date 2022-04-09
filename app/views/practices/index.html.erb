@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="menu-container">
+        ようこそ！ちゃらんけ専用サイトへ！<br>
+        <%= link_to "トップ", "/tops/index" %><br>
+        <%= link_to '練習メニュー記録', :controller => "practices", :action => "index" %><br>
+        <%= link_to '大会結果', :controller => "results", :action => "index" %><br>
+        <%= link_to '部費管理', :controller => "fee_admin", :action => "index" %><br>
+        <%= link_to 'アクアフリー予約', :controller => "reservations", :action => "index" %><br>
+        <%= link_to '各種情報', :controller => "informations", :action => "index" %><br>
+    </div>
+
+    <div class="memo-practices-container">
+        
+        <h2>練習メニュー記録</h2>
+
+        <div class="memo-practices-container2">
+
+            <div class="practices-container">
+                <% @practices.each do |t| %>
+                <div class="practice">
+                    練習日：<%= t.date %><br>
+                    練習種目：<%= t.event %><br>
+                    <%= link_to "練習の詳細へ", practice_path(t.id) %><br>
+                    <%= button_to "削除する", practice_path(t.id), method: :delete %>
+                </div><br>
+                <% end %>
+            </div>
+
+            <div class="practices-container2">
+
+                <%= link_to "練習の記録へ", "/practices/new" %><br>
+                <br>
+                投稿を検索
+                <%= form_tag({controller:"practices",action:"index"}, method: :get) do %>
+                <%= label_tag :name, "種目" %>
+                <%= select_tag :event, options_for_select([["スイム", "スイム"],["バイク","バイク"],["ラン","ラン"]]), {include_blank: '---'} %>
+                <br>
+                <%= date_field_tag :created_at_gteq%>
+                ~
+                <%= date_field_tag :created_at_lteq%>
+                <br>
+                <%= submit_tag "検索" %>
+                <% end %>
+                <br>
+                <%= link_to "トップへ戻る", "/tops/index" %>
+            </div>
+
+        </div>
+
+    </div>
+</div>

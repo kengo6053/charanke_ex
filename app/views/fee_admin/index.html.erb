@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="menu-container">
+        ようこそ！ちゃらんけ専用サイトへ！<br>
+        <%= link_to "トップ", "/tops/index" %><br>
+        <%= link_to '練習メニュー記録', :controller => "practices", :action => "index" %><br>
+        <%= link_to '大会結果', :controller => "results", :action => "index" %><br>
+        <%= link_to '部費管理', :controller => "fee_admin", :action => "index" %><br>
+        <%= link_to 'アクアフリー予約', :controller => "reservations", :action => "index" %><br>
+        <%= link_to '各種情報', :controller => "informations", :action => "index" %><br>
+    </div>
+    <div class="memo-practices-container">
+        <h2>部費管理</h2>
+        <div class="fee_admin">
+            <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRTAhNFweKrdKmXgVIKxcaXo-NXgAl4pN06CMMy0SHhdfv6CfOcOSkjhGEUSYTEXg/pubhtml?widget=true&amp;headers=false", width="700" height="950"></iframe>
+        </div>
+    </div>
+</div>
