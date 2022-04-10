@@ -1,6 +1,6 @@
 class PracticesController < ApplicationController
     def index
-        @practices = Practice.all.order(date: "DESC")
+        @practices = Practice.all.order(date: "ASC")
         if params[:search] == nil
             @practices= Practice.all
         elsif params[:search] == ''
