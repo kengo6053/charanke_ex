@@ -2,9 +2,9 @@ class PracticesController < ApplicationController
     def index
         @practices = Practice.all.order(date: "DESC")
         if params[:search] == nil
-            @practices= Practice.all
+            @practices= Practice.all.order(date: "DESC")
         elsif params[:search] == ''
-            @practices= Practice.all
+            @practices= Practice.all.order(date: "DESC")
         else
             #部分検索
             @practices = Practice.where("body LIKE ? ",'%' + params[:search] + '%')
