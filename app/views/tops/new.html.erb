@@ -8,18 +8,26 @@
         <%= link_to 'アクアフリー予約', :controller => "reservations", :action => "index" %><br>
         <%= link_to '各種情報', :controller => "informations", :action => "index" %><br>
     </div>
-    <div class="memo-tops-container">
-        <h2>お知らせ</h2>
-        <div class="tops-container">
-            <% @tops.each do |t| %>
-                <div class="top">
-                    <%= t.created_at %><br>
-                    <%= t.body %><br>
-                    <%= link_to "詳細へ", top_path(t.id) %>
-                </div>
-            <% end %>
+    
+    <div class="memo-practices-container">
+        <h3>新規お知らせ</h3>
+        <%= form_for @top do |f| %>
+        <div class="field">
+            <%= f.label :日付 %>
+            <%= f.date_field :date %>
         </div>
-        <br>
-        <%= link_to "新規投稿ページへ", tops_new_path %>
+
+        <div class="field">
+            <%= f.label :body %>
+            <%= f.text_field :body, :size => 140 %>
+        </div>
+
+        <div class="field">
+            <%= f.label :画像 %>
+            <%= f.file_field :image %>
+        </div>
+
+        <%= f.submit "お知らせを投稿する" %>
+        <% end %>
     </div>
 </div>

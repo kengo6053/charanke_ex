@@ -8,18 +8,14 @@
         <%= link_to 'アクアフリー予約', :controller => "reservations", :action => "index" %><br>
         <%= link_to '各種情報', :controller => "informations", :action => "index" %><br>
     </div>
-    <div class="memo-tops-container">
-        <h2>お知らせ</h2>
-        <div class="tops-container">
-            <% @tops.each do |t| %>
-                <div class="top">
-                    <%= t.created_at %><br>
-                    <%= t.body %><br>
-                    <%= link_to "詳細へ", top_path(t.id) %>
-                </div>
+    <div class="memo-practices-container">
+        <h2>お知らせ詳細</h2>
+        <div class="top2">
+            <%= @top.created_at %><br>
+            <%= @top.body %><br>
+            <%= link_to @top.image_url , "data-lightbox": @top.image_url do %>
+                <%= image_tag @top.image_url, size: "250x200" if @top.image? %>
             <% end %>
         </div>
-        <br>
-        <%= link_to "新規投稿ページへ", tops_new_path %>
     </div>
 </div>

@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   get 'tops/index' => 'tops#index'
-  root 'tops#index' # 追記
+  root 'tops#index'
+  get 'tops/new' => 'tops#new'
+  post 'tops' => 'tops#create'
+  get 'tops/:id' => 'tops#show',as: 'top'
   get 'practices/index' => 'practices#index'
   get 'practices/new' => 'practices#new'
   post 'practices' => 'practices#create'
