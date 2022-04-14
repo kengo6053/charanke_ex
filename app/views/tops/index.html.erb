@@ -10,15 +10,7 @@
     </div>
     <div class="memo-tops-container">
         <h2>お知らせ</h2>
-        <div class="tops-container">
-            <% @tops.each do |t| %>
-                <div class="top">
-                    <%= t.created_at %><br>
-                    <%= t.body %><br>
-                    <%= link_to "詳細へ", top_path(t.id) %>
-                </div>
-            <% end %>
-        </div>
+
         <br>
         <%= link_to "新規投稿ページへ", tops_new_path %>
     </div>
